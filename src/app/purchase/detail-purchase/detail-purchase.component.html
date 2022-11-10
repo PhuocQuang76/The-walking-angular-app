@@ -1,0 +1,156 @@
+<!--<div class="container" >-->
+<!--  <div class="row">-->
+<!--    <div >-->
+<!--      <div id="view-purchase" >-->
+<!--        <div id="reciept-head">-->
+<!--          <h4 id="detail-head">Purchase Detail</h4>-->
+<!--        </div>-->
+
+<!--        <div class="status-group">-->
+<!--          <div class="right">-->
+<!--            <p >Purchase Status: {{input.purchaseStatus}} </p>-->
+
+<!--            <label for="status-select">Edit Purchase Status:</label>-->
+<!--            <br>-->
+<!--            <select-->
+<!--              name="status"-->
+<!--              id="status-select"-->
+<!--              require-->
+<!--              [(ngModel)]="input.purchaseStatus"-->
+<!--              [ngModelOptions]="{standalone: true}"-->
+<!--            >-->
+<!--              <option value="CONFIRMED">confirmed</option>-->
+<!--              <option value="DELIVERED">delivered</option>-->
+<!--              <option value="CANCELED">canceled</option>-->
+<!--            </select>-->
+<!--            <br>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div id="reciept-body">-->
+<!--          <h5 id="p-name">{{input.product.name}} </h5>-->
+
+<!--          <div id="reciept-description">-->
+<!--&lt;!&ndash;            <p>User ID: {{input.user.userId}}</p>&ndash;&gt;-->
+<!--            <p>Purchase ID: {{input.id}}</p>-->
+<!--            <p>Product ID: {{input.product.id}}</p>-->
+<!--            <p>Description: {{input.product.description}}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <hr>-->
+<!--        <div id="subTotal" class = "row">-->
+<!--          <div class="col-sm-9">-->
+<!--            <h6>Subtotal</h6>-->
+<!--          </div>-->
+<!--          <div class="price col-sm-3">-->
+<!--            <p>Price: ${{input.price}}</p>-->
+<!--            <p>Quantity: {{input.quantity}}</p>-->
+<!--            <p>Tax: ${{tax}}</p>-->
+<!--            <p>Total: ${{total | number: '1.2-2'}}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <hr>-->
+<!--        <div id="information">-->
+<!--          <h6>Customer Information:</h6>-->
+<!--          <p class="price">Name: {{input.user.username}} </p>-->
+<!--          <p class="price">Email: {{input.user.email}} </p>-->
+<!--          <p class="price">Address: {{input.user.address}} </p>-->
+<!--          <div id="buttons">-->
+<!--            <button  (click) = "submit()"class="btn btn-success" type="submit">Submit</button>-->
+<!--            <button (click) = "cancel()"class="btn btn-danger" type="submit">Cancel</button>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-1"></div>-->
+<!--  </div>-->
+<!--  </div>-->
+
+
+<div class='modal-containerbp'>
+  <div class='modalbp'>
+    <div class="title">
+      <div class="row">
+        <div class="col-sm-11">
+          <h4>Purchase Detail</h4>
+        </div>
+        <div class="col-sm-1">
+          <button id="button" type='button' (click)='closeWindow()'>&times;</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1">
+<!--        <img class='info' src='{{input.product.imageUrl}}'  alt="your image" />-->
+      </div>
+
+      <div class="col-sm-10">
+        <div class="status-group">
+          <div class="right">
+            <p >Purchase Status: {{input.purchaseStatus}} </p>
+
+            <label for="status-select">Edit Purchase Status:</label>
+            <br>
+            <select
+              name="status"
+              id="status-select"
+              require
+              [(ngModel)]="input.purchaseStatus"
+              [ngModelOptions]="{standalone: true}"
+            >
+              <option value="CONFIRMED">confirmed</option>
+              <option value="DELIVERED">delivered</option>
+              <option value="CANCELED">canceled</option>
+            </select>
+            <br>
+          </div>
+        </div>
+
+        <div id="reciept-body">
+          <h4 id="p-name">{{input.product.name}} </h4>
+
+          <div id="reciept-description">
+<!--            <p>User ID: {{input.user.userId}}</p>-->
+            <p>Purchase ID: {{input.id}}</p>
+            <p>Product ID: {{input.product.id}}</p>
+            <p>Description: {{input.product.description}}</p>
+          </div>
+        </div>
+
+        <hr>
+        <div id="subTotal" class = "row">
+          <div class="col-sm-9">
+            <h6>Subtotal</h6>
+          </div>
+          <div class="price col-sm-3">
+            <p>Price: ${{input.price}}</p>
+            <p>Quantity: {{input.quantity}}</p>
+            <p>Tax: ${{tax}}</p>
+            <p>Total: ${{total | number: '1.2-2'}}</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div id="information">
+          <h6>Customer Information:</h6>
+          <p class="price">Name: {{input.user.username}} </p>
+          <p class="price">Email: {{input.user.email}} </p>
+          <p class="price">Address: {{input.user.address}} </p>
+          <div id="buttons">
+            <button [disabled]="isSuccessful || input.purchaseStatus == initialPurchaseStatus" (click) = "submit()"class="btn btn-success" type="submit">Submit</button>
+            <button [disabled]="isSuccessful"(click) = "cancel()"class="btn btn-danger" type="submit">Cancel</button>
+          </div>
+          <p style="font-size: small; color:red" *ngIf="isSuccessful" >Submitted.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

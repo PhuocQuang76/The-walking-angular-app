@@ -1,0 +1,147 @@
+
+<div class="container">
+        <div class="form">
+          <form (ngSubmit) = "onSubmit(addData)" #addData="ngForm">
+            <div class="title">Add A New Product</div>
+            <div >
+              <div class="input-container ic1">
+                  <label for="category-select">Choose a category:</label>
+                  <br>
+                  <select
+                    name="category"
+                    id="category-select"
+                    require
+                    [(ngModel)]="addProduct.productCategory.id"
+                    [ngModelOptions]="{standalone: true}"
+                  >
+                    <option *ngFor="let pc of productCategories" value={{pc.id}}>{{pc.productCategoryName}}</option>
+                  </select>
+                  <br>
+              </div>
+
+              <div class="input-container ic1 ">
+                <label for="category-select">Choose a sub category:</label>
+                <br>
+                <div *ngFor="let spc of subProductCategories">
+                  <div  class ="sub-category" *ngIf="spc.productCategory.id == addProduct.productCategory.id">
+                    <input
+                      type="radio"
+                      class="radio"
+                      id="sub_category"
+                      name="sub-category"
+                      value={{spc.id}}
+                      [(ngModel)]="addProduct.subProductCategory.id"
+                      [ngModelOptions]="{standalone: true}"
+                    >
+                    <label for="sub_category">{{spc.subProductCategoryName}}</label>
+                  </div >
+                </div>
+              </div>
+
+              <div class="input-container ic1">
+                  <div class="input-container ic1">
+                    <input
+                      id="name"
+                      class="input"
+                      type="text" name="name"
+
+                      placeholder="Name"
+                      [(ngModel)]="addProduct.name"
+                      [ngModelOptions]="{standalone: true}"
+                    >
+                  </div>
+              </div>
+
+              <div class="input-container ic1">
+                  <div class="input-container ic1">
+                    <input
+                      id="description"
+                      class="input" type="text"
+                      placeholder="Description"
+                      name="description"
+                      #description = "ngModel"
+                      [(ngModel)]="addProduct.description"
+                      [ngModelOptions]="{standalone: true}"
+                    >
+                  </div>
+              </div>
+
+              <div class="input-container ic1">
+                  <div class="input-container ic1">
+                    <input
+                      id="unitPrice"
+                      class="input"
+                      type="number"
+                      name="unitPrice"
+                      placeholder="Unit Price"
+                      [(ngModel)]="addProduct.unitPrice"
+                      [ngModelOptions]="{standalone: true}"
+                    >
+                  </div>
+              </div>
+
+              <div class="input-container ic1">
+                  <div class="input-container ic1">
+                    <input
+                      id="imageUrl"
+                      class="input"
+                      type="text"
+                      placeholder="Image Url"
+                      [(ngModel)]="addProduct.imageUrl"
+                      [ngModelOptions]="{standalone: true}"
+                    >
+                  </div>
+              </div>
+
+
+              <div class="input-container ic1">
+                <label for="category-select">Choose active or non-active:</label>
+                <br>
+                <select
+                  name="active"
+                  id="active-select"
+                  require
+                  [(ngModel)]="addProduct.active"
+                  [ngModelOptions]="{standalone: true}"
+                >
+                  <option value="true">True</option>
+                  <option value="false">False</option>
+                </select>
+                <br>
+              </div>
+
+              <div class="input-container ic1">
+                  <div class="input-container ic1">
+                    <input
+                      id="unitsInnStock"
+                      class="input inStock_style"
+                      type="text"
+                      name="unitsInnStock"
+                      placeholder="Units In Stock"
+                      [(ngModel)]="addProduct.unitsInStock"
+                      [ngModelOptions]="{standalone: true}"
+                    >
+                  </div>
+              </div>
+
+
+              <div class="col-xs-12">
+                <button
+                  class="btn btn-success"
+                  type="submit"
+                  [disabled]="!addData.valid"
+                >Save</button>
+                <button
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="onCancel()"
+                >Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+  <!--  <div *ngIf="isclicked">-->
+  <!--    <detail [viewProduct]="productInput" (eventCloser)="clicked()"></detail>-->
+  <!--  </div>-->
+
+
+    <div class="col-sm-5 list">
+      <div class="row">
+        <div class="col-sm-5 ">
+          <img class='image' src='{{productInput.product.imageUrl}}'  alt="your image">
+        </div>
+
+        <div class="detail col-sm-7">
+          <p> {{ productInput.product.name }}</p>
+          <p class = "text-danger">$ {{ productInput.price }}</p>
+          <p class="small">{{ productInput.product.description }}</p>
+          <div class="view">
+<!--            <button (click)="onSelected()">View detail</button>-->
+            <button (click)="showEdit()">View detail</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div  class="col-sm-7">
+      <div *ngIf="displayEdit">
+        <detail-purchase  [input]="productInput" (eventCloser)="editClicked()"></detail-purchase>
+      </div>
+<!--      <detail-purchase></detail-purchase>-->
+    </div>
+
+  </div>
+</div>

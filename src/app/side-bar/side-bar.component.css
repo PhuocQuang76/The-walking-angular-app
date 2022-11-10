@@ -1,0 +1,70 @@
+/*-------------------Side Bar---------------------*/
+.sidebar{
+  width:200px;
+
+  position:inherit;
+  margin-top: 10px !important;
+  left:0;
+  /*top:0;*/
+  bottom:0;
+  background: #d7b790;
+  /*overflow-y:auto*/
+  height: calc(100% - 10px);
+}
+
+.side-head img{
+  background:#fff;
+  height:50px;
+  width: 200px;
+}
+
+.sidebar-content{
+  padding:35px;
+}
+
+.sidebar-content li a{
+  display:block;
+  color:#555;
+  font-size:16px;
+  padding:5px 0;
+  font-size: small;
+  color:white
+}
+
+.sidebar li a:hover{
+  color:#211e1b;
+}
+.product_category{
+  text-decoration: underline!important;
+}
+
+/*.menu-sidebar{*/
+/*  padding:11.5px 0*/
+/*}*/
+
+/*.sidebar-content{*/
+/*  position:relative;*/
+/*  height:-webkit-calc(100vh - 75px);*/
+/*  height:-moz-calc(100vh - 75px);*/
+/*  height:calc(100vh - 75px)*/
+/*}*/
+
+/*.sidebar{*/
+/*  padding:35px;*/
+/*  padding-bottom:0*/
+/*}*/
+
+/*.sidebar .navbar-list li a{*/
+/*  display:block;*/
+/*  color:#555;*/
+/*  font-size:16px;*/
+/*  padding:5px 0*/
+/*}*/
+
+/*.sidebar .navbar-list li a i{*/
+/*  margin-right:19px*/
+/*}*/
+
+/*.sidebar .navbar-list li a:hover{*/
+/*  color:#0da8e4*/
+/*}*/

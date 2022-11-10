@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class=" content">
+    <h1>Purchase History</h1>
+    <div class="buttonGroup">
+      <button class="btn btn-success" (click)="getPendingPurchase()" >PENDING</button>
+      <button class="btn btn-success" (click)="getConfirmPurchase()" >CONFIRM</button>
+      <button class="btn btn-success" (click)="getDeliveredPurchase()" >DELIVERED</button>
+      <button class="btn btn-success" (click)="getCanceledPurchase()" >CANCELED</button>
+    </div>
+  </div>
+
+        <div>
+          <div>
+            <purchase *ngFor="let purchase of purchases" [productInput]="purchase"></purchase>
+          </div>
+        </div>
+
+</div>

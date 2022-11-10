@@ -1,0 +1,96 @@
+<nav class="navbar" >
+
+  <div class="level1">
+    <img class="img-fluid" src="../../../../assets/images/logo/logo.png">
+    <h2 style="width: 90%">THE WALKING</h2>
+
+    <div class="search-container">
+      <!--        <form id="form" >-->
+      <!--          <input-->
+      <!--            type="text"-->
+      <!--            placeholder="Search.."-->
+      <!--            #searchTextInputed-->
+      <!--          >-->
+      <!--          <input-->
+      <!--            id="image-input"-->
+      <!--            type="image"-->
+      <!--            src="../../../../assets/images/logo/search.png"-->
+      <!--            alt="Submit" width="48" height="48"-->
+      <!--          >-->
+      <!--        </form>-->
+
+      <div class="level1_child">
+        <p>Hi,</p>
+        <ul><li><a>{{username}}</a></li></ul>
+
+      </div>
+    </div>
+
+<!--    <div class="cart" *ngIf="!showOwnerBoard || !showEmployeeBoard">-->
+<!--      <img class="img-fluid" src="../../../../assets/images/logo/cart.png"/>-->
+<!--      <input id="cart-input" type="text" [defaultValue]="0" >-->
+<!--    </div>-->
+
+    <div class="cart" *ngIf="!showOwnerBoard || !showEmployeeBoard">
+      <a class="cart-link" routerLink="/cart/{{userId}}/">
+        <img class="img-fluid" src="../../../../assets/images/logo/cart.png"/>
+      </a>
+<!--      <img class="img-fluid" src="../../../../assets/images/logo/cart.png"/>-->
+      <input
+        id="cart-input"
+        type="text" [defaultValue]="0"
+        [(ngModel)] = "countCartItem"
+      >
+    </div>
+  </div>
+
+
+
+
+  <div class="level2">
+    <div class="level2_child">
+      <ul class="left">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/about">About Us</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+
+        <li class="dropdown" *ngIf="showOwnerBoard">
+          <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">Owner<span caret></span></a>
+          <div class="dropdown-menu">
+            <ul >
+              <li><a style="color: #211e1b" routerLink="/employee/register">Add New Employee</a></li>
+              <li><a style="color: #211e1b" routerLink="/employees/info">Employee Information</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="dropdown" *ngIf="showEmployeeBoard">
+<!--        <li class="dropdown" *ngIf="showOwnerBoard">-->
+          <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">Employee<span caret></span></a>
+          <div class="dropdown-menu">
+            <ul >
+              <li><a style="color: #211e1b" routerLink="/product/add">Add Product</a></li>
+              <li><a style="color: #211e1b" routerLink="/category/add/1">Add category</a></li>
+              <li><a style="color: #211e1b" routerLink="/category/add">Add sub category</a></li>
+              <li><a style="color: #211e1b" routerLink="/purchases/pending">Purchases Status</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="level2_child">
+      <ul class="right" *ngIf="!isLoggedIn">
+        <li><a routerLink="/login">Login </a></li>
+        <li><a routerLink="/register">Register </a></li>
+      </ul>
+      <ul class="right" *ngIf="isLoggedIn">
+        <li><a routerLink="/profile">Profile </a></li>
+        <li><a href (click)="logout()">Logout </a></li>
+
+      </ul>
+    </div>
+  </div>
+
+</nav>

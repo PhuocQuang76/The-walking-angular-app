@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+.modal-containerbp {
+  z-index: 5;
+  background-color: rgba(109, 109, 109, 0.295);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.modalbp {
+  z-index: 5;
+  background-color: #c8c0c0;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0,0,0, 0.2);
+  width: 800px;
+  max-width: 80%;
+  height: 700px;
+  max-height:700px;
+}
+
+.modalbp .info {
+  width: 250px;
+  height: 250px;
+  object-fit: scale-down;
+}
+
+.row{
+  margin-top: 10px;
+}
+
+.title {
+  text-align: center;
+  color: #eee;
+  font-family: sans-serif;
+  font-size:25px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+.input-container {
+  height: 25px;
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  background-color: #a0a2b8;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: white;
+  font-size: 18px;
+  height: 25px;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+  color:red;
+}
+.ic1{
+  margin-bottom: 10px;
+}
+.help-block{
+  padding-top:-10px;
+  font-size: xx-small;
+}
+
+
+/*---------------option--------------*/
+
+label {
+  font-size: 1rem;
+  padding-right: 10px;
+}
+
+select {
+  font-size: .9rem;
+  padding: 2px 5px;
+}
+
+
+

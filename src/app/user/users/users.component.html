@@ -1,0 +1,17 @@
+
+<div class="container">
+  <div class=" content">
+    <h1>EMPLOYEE LIST INFORMATION</h1>
+    <div class="buttonGroup">
+      <button  class="btn btn-success"(click)="getOwnerList()" >OWNER INFORMATION</button>
+      <button class="btn btn-success" (click)="getEmployeeList()" >EMPLOYEE INFORMATION</button>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <user *ngFor="let user of users" [userInput]="user"></user>
+    </div>
+  </div>
+
+</div>

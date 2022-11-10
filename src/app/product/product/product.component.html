@@ -1,0 +1,28 @@
+<div class='container'>
+  <div *ngIf="isclicked">
+    <detail [viewProduct]="productInput" (eventCloser)="clicked()"></detail>
+  </div>
+
+  <div *ngIf="displayEdit">
+    <add-edit [editInput]="productInput"  (eventCloser)="editClicked()"></add-edit>
+  </div>
+
+
+  <div class="center" (click)="clicked()">
+    <img class='image' src='{{productInput.imageUrl}}'  alt="your image">
+    <p> {{ productInput.name }}</p>
+    <p class = "text-danger">$ {{ productInput.unitPrice }}</p>
+    <p class="small">{{ productInput.description }}</p>
+  </div>
+
+  <div class="buttonGroup">
+    <div class="view">
+      <button (click)="clicked()">View detail</button>
+    </div>
+    <div class="edit" *ngFor="let role of roles">
+      <button *ngIf="role !='CUSTOMER'" type='button' (click)="showEdit()">Edit Product</button>
+    </div>
+  </div>
+</div>
+
+

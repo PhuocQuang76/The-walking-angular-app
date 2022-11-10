@@ -1,0 +1,51 @@
+<div class="container">
+  <div >
+    <div class="row purchase-body">
+      <div class="col-sm-4">
+        <div >
+          <img class="purchase-images" src="{{cartDetail.product.imageUrl}}" height="600" width="400"/>
+        </div>
+      </div>
+
+      <div class="col-sm-8">
+        <h3 style="text-decoration: none" class="product-name">{{cartDetail.product.name}}</h3>
+        <p id="purchaseID">Purchase ID: {{cartDetail.id}}</p>
+        <p class="detail-style">{{cartDetail.product.description}}</p>
+
+
+<!--      <div id= "subTotal" >-->
+<!--        <p><span class="span-style">Price</span>: ${{cartDetail.price}}</p>-->
+<!--        <p><span class="span-style">Tax </span>: ${{tax}}</p>-->
+<!--        <p><span class="span-style">Subtotal </span>: ${{total | number: '1.2-2'}}</p>-->
+<!--      </div>-->
+
+
+        <div class="cart-quantity">
+          <div id="price">
+            <p>${{cartDetail.price | number: '1.2-2'}}</p>
+<!--            <p><span class="span-style">Subtotal </span>: ${{total | number: '1.2-2'}}</p>-->
+          </div>
+          <div id="price_button" >
+            <div>
+              <button class="volume-decrease" (click)="decrease()">-</button>
+              <button class="volume-increase" (click)="increase()">+</button>
+            </div>
+
+            <div>
+              <input class="volume-display" value={{cartDetail.quantity}}
+                [(ngModel)]="cartDetail.quantity" [ngModelOptions]="{standalone: true}">
+            </div>
+
+
+          </div>
+        </div>
+        <div>
+          <p><span class="span-style">Subtotal </span>: ${{total | number: '1.2-2'}}</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+

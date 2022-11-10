@@ -1,0 +1,200 @@
+<div class='modal-containerbp'>
+  <div class='modalbp'>
+    <div class="title">
+      <div class="row">
+        <div class="col-sm-11">
+          <h4>Employee Detail</h4>
+        </div>
+        <div class="col-sm-1">
+          <button id="button" type='button' (click)='closeWindow()'>&times;</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+<!--      <div class="col-sm-1">-->
+<!--        &lt;!&ndash;        <img class='info' src='{{input.product.imageUrl}}'  alt="your image" />&ndash;&gt;-->
+<!--      </div>-->
+
+<!--      <div class="col-sm-10">-->
+<!--&lt;!&ndash;        <div class="status-group">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="right">&ndash;&gt;-->
+<!--&lt;!&ndash;            <p >Purchase Status: {{input.purchaseStatus}} </p>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <label for="status-select">Edit Purchase Status:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <br>&ndash;&gt;-->
+<!--&lt;!&ndash;            <select&ndash;&gt;-->
+<!--&lt;!&ndash;              name="status"&ndash;&gt;-->
+<!--&lt;!&ndash;              id="status-select"&ndash;&gt;-->
+<!--&lt;!&ndash;              require&ndash;&gt;-->
+<!--&lt;!&ndash;              [(ngModel)]="input.purchaseStatus"&ndash;&gt;-->
+<!--&lt;!&ndash;              [ngModelOptions]="{standalone: true}"&ndash;&gt;-->
+<!--&lt;!&ndash;            >&ndash;&gt;-->
+<!--&lt;!&ndash;              <option value="CONFIRMED">confirmed</option>&ndash;&gt;-->
+<!--&lt;!&ndash;              <option value="DELIVERED">delivered</option>&ndash;&gt;-->
+<!--&lt;!&ndash;              <option value="CANCELED">canceled</option>&ndash;&gt;-->
+<!--&lt;!&ndash;            </select>&ndash;&gt;-->
+<!--&lt;!&ndash;            <br>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--        <div id="reciept-body">-->
+<!--          <h4 id="p-name">{{input.username}} </h4>-->
+
+<!--          <div id="reciept-description">-->
+<!--            &lt;!&ndash;            <p>User ID: {{input.user.userId}}</p>&ndash;&gt;-->
+<!--            <p>Purchase ID: {{input.userId}}</p>-->
+<!--            <p>Product ID: {{input.username}}</p>-->
+<!--            <p>Description: {{input.userId}}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        -->
+<!--        <div id="information">-->
+<!--          <h6>Customer Information:</h6>-->
+<!--          <p class="price">Name: {{input.username}} </p>-->
+<!--          <p class="price">Email: {{input.email}} </p>-->
+<!--          <p class="price">Address: {{input.address}} </p>-->
+<!--          <div id="buttons">-->
+<!--            <button (click) = "submit()"class="btn btn-success" type="submit">Submit</button>-->
+<!--            <button [disabled]="isSuccessful"(click) = "cancel()"class="btn btn-danger" type="submit">Cancel</button>-->
+<!--          </div>-->
+<!--          <p style="font-size: small; color:red" *ngIf="isSuccessful" >Submitted.</p>-->
+<!--        </div>-->
+
+<!--      </div>-->
+
+      <div class="form">
+        <form (ngSubmit) = "onSubmit(addData)" #addData="ngForm">
+          <div class="image-div">
+            <img
+              class="image"
+              id="profile-img"
+              src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            />
+          </div>
+
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+            <div class="input-container ic1">
+              <label class="input-label" for="username">Username:</label>
+              <div class="input-container ic1">
+                <input
+                  id="username"
+                  class="input"
+                  type="text" name="username"
+                  required
+                  [disabled]="deleteReturn != 0 || !isEdit"
+                  #username = "ngModel"
+                  [(ngModel)]="input.username"
+                  [ngModelOptions]="{standalone: true}"
+                >
+                </div>
+              </div>
+
+
+              <div class="input-container ic1">
+                <label class="input-label" for="email">Email:</label>
+                <div class="input-container ic1">
+                  <input
+                    id="email"
+                    class="input" type="email"
+                    name="description"
+                    #email = "ngModel"
+                    [disabled]="deleteReturn != 0  || !isEdit"
+                    required
+                    [(ngModel)]="input.email"
+                    [ngModelOptions]="{standalone: true}"
+                  >
+                </div>
+              </div>
+
+              <div class="input-container ic1">
+                <label class="input-label" for="password">Password:</label>
+                <div class="input-container ic1">
+                  <input
+                    id="password"
+                    class="input"
+                    type="text"
+                    name="password"
+                    required
+                    [disabled]="deleteReturn != 0 || !isEdit"
+                    #password = "ngModel"
+                    [(ngModel)]="input.password"
+                    [ngModelOptions]="{standalone: true}"
+                  >
+                </div>
+              </div>
+
+              <div class="input-container ic1">
+                <label class="input-label" for="address">Address:</label>
+                <div class="input-container ic1">
+                  <input
+                    id="address"
+                    class="input"
+                    type="text"
+                    required
+                    [disabled]="deleteReturn != 0 || !isEdit"
+                    #address = "ngModel"
+                    [(ngModel)]="input.address"
+                    [ngModelOptions]="{standalone: true}"
+                  >
+                </div>
+              </div>
+
+
+              <div class="input-container ic1">
+                <label class="input-label" for="role">UserId:</label>
+                <div class="input-container ic1">
+                  <input
+                    id="role"
+                    class="input"
+                    type="text"
+                    name="role"
+                    [disabled]="true"
+                    #role = "ngModel"
+                    [(ngModel)]="input.userId"
+                    [ngModelOptions]="{standalone: true}"
+                  >
+                </div>
+              </div>
+
+
+
+            <div class="col-xs-12 buttonGroup">
+              <button *ngIf="isEdit"class="btn btn-success" type="submit">Save</button>
+              <button *ngIf="!isEdit" (click)=edit() class="btn btn-primary btn-block">Edit</button>
+              <button
+                class="btn btn-danger"
+                type="button"
+                (click)="onCancel()"
+              >Cancel</button>
+              <button
+                class="btn btn-danger"
+                type="button"
+                [disabled]="userId == input.userId"
+
+                (click)="onDelete()"
+              >Delete</button>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-1"></div>
+
+          <div class="alert alert-warning"*ngIf="isSignUpFailed">
+            Signup failed!<br />{{ errorMessage }}
+          </div>
+        </form>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Your registration is successful!
+        </div >
+        <div class="alert alert-success" *ngIf="deleteReturn != 0">
+          The user was deleted successful!
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

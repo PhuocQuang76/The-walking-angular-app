@@ -1,0 +1,27 @@
+.footer{
+  font-family: Apple Chancery, cursive;
+}
+
+.links{
+  background-color: #474753;
+  text-align: center;
+
+}
+.li, a{
+  list-style-type:none ;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: small;
+}
+a:hover{
+  color:burlywood;
+  font-style: italic;
+  font-size: medium;
+}
+
+.text-center{
+  background-color: #343445;
+  height: 50px;
+  margin-top: -20px;
+}

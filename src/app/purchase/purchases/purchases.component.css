@@ -1,0 +1,17 @@
+.container{
+  width: 1300px;
+
+}
+.content {
+  width: 100vw;
+
+}
+.row{
+  margin-top: 5%;
+}
+.buttonGroup button{
+  margin-right: 15px;
+}
+.buttonGroup button:hover{
+  background-color: #534c21;
+}

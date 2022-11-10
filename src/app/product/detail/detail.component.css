@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+.modal-containerbp {
+  z-index: 5;
+  background-color: rgba(109, 109, 109, 0.295);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.modalbp {
+  z-index: 5;
+  background-color: #c8c0c0;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0,0,0, 0.2);
+  width: 800px;
+  max-width: 80%;
+  height: 400px;
+  max-height:400px;
+}
+
+.modalbp .info {
+  width: 250px;
+  height: 250px;
+  object-fit: scale-down;
+}
+
+.row{
+  margin-top: 20px;
+}
+
+button{
+  border-radius: 20px;
+  background-color: #efc16d;
+  border: none;
+}
+
+.edit{
+  margin-top: 400px;
+  text-align: center;
+}
+
+
+

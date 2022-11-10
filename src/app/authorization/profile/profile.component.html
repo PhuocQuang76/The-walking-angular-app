@@ -1,0 +1,164 @@
+<div class="container">
+  <div class="card card-container form">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <h6 style="color: red; font-style: italic; font-size: small; text-align: center">Require relogin after edit your profile !!!</h6>
+    <form (ngSubmit) = "onSubmit(addData)" #addData="ngForm" name="form" novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input  type="text"  class="form-control"  name="username"
+                [(ngModel)]="currentUser.username"
+                required
+                minlength="3"
+                [disabled]="!isEdit"
+                #username="ngModel"
+                [ngClass]="{ 'is-invalid': addData.submitted && username.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="username.errors && addData.submitted">
+          <div *ngIf="username.errors['required']">Username is required</div>
+          <div *ngIf="username.errors['minlength']">Username must be at least 3 characters</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]=" currentUser.email"
+          required
+          [disabled]="!isEdit"
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': addData.submitted && email.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="email.errors && addData.submitted">
+          <div *ngIf="email.errors['required']">Email is required</div>
+          <div *ngIf="email.errors['email']">Email must be a valid email address</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="currentUser.password"
+          required
+          minlength="6"
+          [disabled]="true"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid':  password.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="password.errors">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">Password must be at least 6 characters</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input  type="text"  class="form-control"
+                name="address"
+                [(ngModel)]="currentUser.address"
+                required
+                minlength="10"
+                maxlength="40"
+                #address="ngModel"
+                [disabled]="!isEdit"
+                [ngClass]="{ 'is-invalid': address.errors }"
+        />
+
+        <div class="invalid-feedback" *ngIf="address.errors">
+          <div *ngIf="address.errors['required']" && ngtouch>Address is required</div>
+        </div>
+      </div>
+
+      <div class="input-container ic1">
+        <label class="input-label" for="role">UserId:</label>
+        <div class="input-container ic1">
+          <input
+            id="role"
+            class="input"
+            type="text"
+            name="role"
+            [disabled]="true"
+            #role = "ngModel"
+            [(ngModel)]="userId"
+            [ngModelOptions]="{standalone: true}"
+          >
+        </div>
+      </div>
+
+
+      <div class="buttonGroup">
+        <button *ngIf="isEdit" type="submit" class="btn btn-primary btn-block">Submit</button>
+        <button *ngIf="!isEdit" (click)=edit() class="btn btn-primary btn-block">Edit Profile</button>
+        <button (click)="cancel()" class="btn btn-danger btn-block">Cancel</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="!isSuccessful">
+        {{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container" *ngIf="currentUser; else loggedOut">-->
+
+<!--    <h3>-->
+<!--      <strong>{{ currentUser.username }}</strong> Profile-->
+<!--    </h3>-->
+
+<!--  <p>-->
+<!--    <strong>Username:</strong>-->
+<!--    {{ currentUser.username }}-->
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <strong>Password:</strong>-->
+<!--    {{ currentUser.password }}-->
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <strong>Email:</strong>-->
+<!--    {{ currentUser.email }}-->
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <strong>Address:</strong>-->
+<!--    {{ currentUser.address }}-->
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <strong>Token:</strong>-->
+<!--    {{ currentUser.accessToken}}-->
+<!--  </p>-->
+<!--  <strong>Roles:</strong>-->
+<!--  <ul>-->
+<!--    <li *ngFor="let role of currentUser.roles">-->
+<!--      {{ role }}-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+<!--<ng-template #loggedOut>-->
+<!--  Please login.-->
+<!--</ng-template>-->

@@ -1,0 +1,35 @@
+
+<div class='modal-containerbp'>
+  <div class='modalbp'>
+
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your purchase added to cart!
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-4">
+        <img class='info' src='{{viewProduct.imageUrl}}'  alt="your image" />
+      </div>
+
+      <div class="col-sm-6">
+        <h4>{{ viewProduct.name }}</h4>
+        <p>{{ viewProduct.productCategory.productCategoryName }} - {{viewProduct.subProductCategory.subProductCategoryName }}</p>
+        <p class="text-danger">${{ viewProduct.unitPrice }}</p>
+        <p>Get it as soon as ...</p>
+        <p>{{ viewProduct.description }}</p>
+        <p>{{viewProduct.unitsInStock}} items left</p>
+
+
+
+        <button (click)="createPurchase()">Add to Cart</button>
+      </div>
+
+      <div class="col-sm-2">
+        <button type='button' (click)='closeWindow()'>&times;</button>
+      </div>
+
+    </div>
+  </div>
+</div>

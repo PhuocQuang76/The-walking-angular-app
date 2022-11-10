@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <!--  <div *ngIf="isclicked">-->
+    <!--    <detail [viewProduct]="productInput" (eventCloser)="clicked()"></detail>-->
+    <!--  </div>-->
+
+
+    <div class="col-sm-5 list">
+      <div class="row">
+        <div class="col-sm-3">
+          <img
+            class="image"
+            id="profile-img"
+            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+
+          />
+
+        </div>
+
+        <div class="detail col-sm-9">
+          <p> <span class="user-style">Name: </span> &nbsp;{{ userInput.username }}</p>
+          <p> <span class="user-style">Email: </span> &nbsp;{{ userInput.email }}</p>
+          <p> <span class="user-style">Password: </span> &nbsp;{{ userInput.password}}</p>
+          <p> <span class="user-style">Address: </span> &nbsp;{{ userInput.address}}</p>
+          <div class="view">
+            <!--            <button (click)="onSelected()">View detail</button>-->
+            <button (click)="showEdit()">View detail</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div  class="col-sm-7">
+      <div *ngIf="displayEdit">
+        <detail-user  [input]="userInput" (eventCloser)="editClicked()"></detail-user>
+      </div>
+      <!--      <detail-purchase></detail-purchase>-->
+    </div>
+
+  </div>
+</div>

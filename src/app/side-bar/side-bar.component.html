@@ -1,0 +1,35 @@
+<!-- MENU SIDEBAR-->
+
+<aside class="sidebar">
+  <div class="side-head">
+    <img src="assets/images/logo/shoeLogo.png" alt="images">
+  </div>
+  <div class="sidebar-content">
+
+    <ul class="list-unstyled navbar-list" >
+      <li routerLinkActive="active">
+        <a routerLink="/home"> Home</a>
+      </li>
+      <li
+        routerLinkActive="active"
+        *ngFor="let productCategory of productCategories">
+        <a
+          routerLink="products/category/{{productCategory.id}}"
+          class="product_category"
+        >{{productCategory.productCategoryName}}
+        </a>
+          <ul *ngFor="let subProductCategory of subProductCategories">
+            <li
+              routerLinkActive="active"
+              *ngIf="subProductCategory.productCategory.productCategoryName == productCategory.productCategoryName">
+              <a routerLink="products/sub-category/{{productCategory.id}}/{{subProductCategory.id}}">
+                {{subProductCategory.subProductCategoryName}}
+              </a>
+            </li>
+          </ul>
+
+      </li>
+    </ul>
+
+  </div>
+</aside>
